@@ -4,7 +4,7 @@ WORKDIR app
 
 COPY . .
 
-RUN mv .enc.exampe .env
+RUN mv .env.exampe .env
 
 EXPOSE 4040
 
