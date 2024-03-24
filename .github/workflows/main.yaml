@@ -6,14 +6,17 @@ on:
             - "master"
 
 jobs:
-    hello-world: 
+    build:
         runs-on: 
-            - ubuntu-latest
+            - ubuntu
         
-        steps:
-            - name: "print-hello-world"
-              run: |
-                echo hello world
-                
-                          
+        steps: 
+            - name: "checkout"
+              uses: actions/checkout@v4.1.1
             
+            - name: "Docker Build"
+              uses: docker/build-push-action@v5.3.0
+              with:
+                context: "."
+                tags: "go-todo"
+                file: "Dockerfile"
